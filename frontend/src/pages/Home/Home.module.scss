@@ -1,0 +1,223 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 13rem); 
+    
+    .buttonUpdate{ 
+        display: flex;        
+        justify-content: flex-end;
+        padding: 1em 1em 0 0;
+        button{
+            background-color: #3B3B98;
+            color:#fff;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            height: 30px;
+            font-weight: bold;
+            padding: 0 .5em 0 .5em;
+            cursor: pointer;
+    
+            &:hover{
+                color:#FFC312
+            } 
+
+        }        
+        
+    }  
+    
+    .movie{
+        display: flex;        
+        background-color: rgba($color: #000, $alpha: .7); 
+        max-height: calc(100vh - 13rem);       
+        color: #fff;
+        margin: 1em;
+        border-radius: 0.5em;
+
+        .movieImg{
+            max-height: 100%;
+            max-width: 40%;
+            padding: 5em;
+            img{
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+
+        .movieInfo{
+            display: flex;
+            flex-direction: column;            
+            max-height: 100%;
+            width: 100%;
+            padding: 5em;
+
+            h2{
+                padding-bottom: .5em;
+            }
+
+            .movieDescription{
+                padding-top: 2em;
+            }
+
+            .moviePeoples{
+                display: flex;                
+                align-items: flex-end; 
+                justify-content: space-between;
+                padding-top: 2em;  
+                .movieProducers{
+                    margin-left: 2em;
+                }             
+            }
+        }
+        
+    }
+
+    .listMovies{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        margin: 1em;
+
+        .movieCard{           
+            background-color: rgba($color: #000, $alpha: .7); 
+            border-radius: 5px;
+            padding: 0.5em;
+            margin:1em;
+            text-align: center;
+            color:#fff;
+            scale: (1);
+            cursor: pointer;
+            
+            h3{
+                padding: .5em;
+            }
+
+            img{
+                max-width: 100%;
+                border-radius: 5px;
+            }
+
+            &:hover{
+                color:#FFC312;
+                transform: scale(1.05);
+                background-color: rgba($color: #000, $alpha: .4); 
+            }
+            
+        }        
+    
+    }
+
+    .pagination{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5em 0;
+
+        button{
+            padding: 0.5em;
+            min-width: 70px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background-color: rgba($color: #000, $alpha: .7); 
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover{
+                color:#FFC312;
+            }
+
+            &:disabled{
+                background-color: rgba($color: #ccc, $alpha: .7); 
+                cursor: not-allowed; 
+                color: #000;
+            }
+
+        }
+        
+        span{
+            margin: 0 1em 0 1em;
+        }
+    }
+
+    .empty{
+        display: flex;     
+        flex-direction: column;   
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color: #000, $alpha: .7); 
+        height: calc(100vh - 13rem);       
+        color: #fff;
+        margin: 1em;
+        border-radius: 0.5em;
+
+        h2,p{
+            padding: 1em;
+        }
+    }
+}
+
+@media (max-width: 1300px){
+
+    .main{
+        .listMovies{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            margin: 1em;
+        }
+    }
+}
+
+@media (max-width: 1200px){
+
+    .main{
+        .listMovies{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            margin: 1em;
+        }
+    }
+}
+
+@media (max-width: 1000px){
+
+    .main{
+        .movie{
+            flex-direction: column-reverse;
+            max-height: 100%;
+            margin: 0.5em;
+
+            .movieImg{
+                padding: 1em;
+                max-width: 100%;
+                max-height: 100%;
+                img{
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: cover;
+                    border-radius: 5px;
+                }
+            }
+
+            .movieInfo{
+                padding: 1em;
+                
+                .moviePeoples{
+                    display: grid;                
+                    grid-template-columns: repeat(2,1fr);  
+                    align-items:baseline;                   
+                    padding-top: 2em;                   
+                    
+                }
+            }
+        }
+
+        .listMovies{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            margin: 1em;
+            font-size: .7em;
+        }
+    }
+}

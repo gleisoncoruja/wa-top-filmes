@@ -1,0 +1,491 @@
+<!--
+ API Documentation HTML Template  - 1.0.1
+ Copyright © 2016 Florian Nicolas
+ Licensed under the MIT license.
+ https://github.com/ticlekiwi/API-Documentation-HTML-Template
+ !-->
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>API - Documentação WA Top Filmes</title>
+    <meta name="description" content="">
+    <meta name="author" content="ticlekiwi">
+
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="views/css/hightlightjs-dark.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&family=Source+Code+Pro:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="views/css/style.css" media="all">
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="left-menu">
+        <div class="content-logo">
+            <div class="logo">
+                <img alt="platform by Emily van den Heever from the Noun Project"
+                    title="platform by Emily van den Heever from the Noun Project" src="views/images/logo.png"
+                    height="32" />
+                <span>API Documentation</span>
+            </div>
+            <button class="burger-menu-icon" id="button-menu-mobile">
+                <svg width="34" height="34" viewBox="0 0 100 100">
+                    <path class="line line1"
+                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058">
+                    </path>
+                    <path class="line line2" d="M 20,50 H 80"></path>
+                    <path class="line line3"
+                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-menu-closer"></div>
+        <div class="content-menu">
+            <div class="content-infos">
+                <div class="info"><b>Versão:</b> 1.0.0</div>
+                <div class="info"><b>Atualizada:</b> 22/07/2022</div>
+            </div>
+            <ul>
+                <li class="scroll-to-link active" data-target="content-get-started">
+                    <a>Início</a>
+                </li>
+                <li class="scroll-to-link" data-target="content-get-characters">
+                    <a>Listar Filmes</a>
+                </li>
+                <li class="scroll-to-link" data-target="content-get-by-id">
+                    <a>Listar filme por ID</a>
+                </li>
+                <li class="scroll-to-link" data-target="content-update-database">
+                    <a>Atualizar base de dados</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-page">
+        <div class="content-code"></div>
+        <div class="content">
+            <div class="overflow-hidden content-section" id="content-get-started">
+                <h1>Início</h1>
+                <pre>
+                    API Endpoint
+
+                    http://localhost:5000/api
+                </pre>
+                <p>
+                    A WA Top Filmes API fornece 50 filmes que estão em alta, a cada pagina a API retorna 10 resultados,
+                    com ednpoints simplificados e muito simples de utilizar
+                </p>
+                <p>
+                    Para usar essa API não é necessário uma API Key, bastando apenas acessar as rotas.
+                </p>
+                <p><strong>URL Base: </strong>http://localhost:5000/api/</p>
+            </div>
+            <div class="overflow-hidden content-section" id="content-get-characters">
+                <h2>Listar Filmes</h2>
+                <pre><code class="bash">
+# curl  exemplo
+curl \
+-X GET http://localhost:5000/api/movies 
+                </code></pre>
+                <p>
+                    Para listar os filmes bastar fazer um GET conforme a URL abaixo :<br>
+                    <code class="higlighted break-word">http://localhost:5000/api/movies</code>
+                </p>
+                <br>
+                <pre><code class="json">
+Result example :
+
+{
+"movies": [
+{
+    "_id": "62db14f1cf1444d32c6af1d9",
+    "title": "Uncharted: Fora do Mapa",
+    "image": "https://image.tmdb.org/t/p/original//qNAPgepJ4NHNA74ThVsxQEOUceJ.jpg",
+    "movie_banner": "https://image.tmdb.org/t/p/original//aEGiJJP91HsKVTEPy1HhmN0wRLm.jpg",
+    "description": "Nathan Drake e seu parceiro canastrão Victor \"Sully\" Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.",
+    "director": [
+        {
+            "adult": false,
+            "gender": 2,
+            "id": 91268,
+            "known_for_department": "Directing",
+            "name": "Ruben Fleischer",
+            "original_name": "Ruben Fleischer",
+            "popularity": 8.932,
+            "profile_path": "/3JLxOPFTLigSy8FjFjDyMwD9GIp.jpg",
+            "credit_id": "5e191bc9b3f6f50012d39ee2",
+            "department": "Directing",
+            "job": "Director"
+        }
+    ],
+    "producer": [
+        {
+            "adult": false,
+            "gender": 2,
+            "id": 282,
+            "known_for_department": "Production",
+            "name": "Charles Roven",
+            "original_name": "Charles Roven",
+            "popularity": 2.375,
+            "profile_path": "/4uJLoVstC1CBcArXFOe53N2fDr1.jpg",
+            "credit_id": "5dccb1b979a1c3001345fb6e",
+            "department": "Production",
+            "job": "Producer"
+        },
+        {
+            "adult": false,
+            "gender": 2,
+            "id": 7626,
+            "known_for_department": "Production",
+            "name": "Avi Arad",
+            "original_name": "Avi Arad",
+            "popularity": 7.176,
+            "profile_path": "/zFNtix6jjAfjKeE687w1VgU4H1T.jpg",
+            "credit_id": "5dccb1d4e263bb001171cbf9",
+            "department": "Production",
+            "job": "Producer"
+        },
+        {
+            "adult": false,
+            "gender": 2,
+            "id": 37436,
+            "known_for_department": "Production",
+            "name": "Alex Gartner",
+            "original_name": "Alex Gartner",
+            "popularity": 1.22,
+            "profile_path": null,
+            "credit_id": "5dccb1c4b2e074001281d5e7",
+            "department": "Production",
+            "job": "Producer"
+        },
+        {
+            "adult": false,
+            "gender": 0,
+            "id": 937174,
+            "known_for_department": "Production",
+            "name": "Ari Arad",
+            "original_name": "Ari Arad",
+            "popularity": 3.313,
+            "profile_path": null,
+            "credit_id": "5dccb1e779a1c3001045b6db",
+            "department": "Production",
+            "job": "Producer"
+        }
+    ],
+    "createdAt": "2022-07-22T21:21:53.917Z",
+    "updatedAt": "2022-07-22T21:21:53.917Z",
+    "__v": 0
+}
+                </code></pre>
+                <h4>Paginação</h4>
+                <table class="central-overflow-x">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Page</th>
+                            <th>Type</th>
+                            <th>Endpoint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GET</td>
+                            <td>{page}</td>
+                            <td>Integer</td>
+                            <td>/movies/{page}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="overflow-hidden content-section" id="content-get-by-id">
+                <h2>Listar Filme por ID</h2>
+                <pre><code class="bash">
+# curl  exemplo
+curl \
+-X GET http://localhost:5000/api/movies 
+                </code></pre>
+                <p>
+                    Para listar um filme por ID basta seguir o exemplo da url abaixo :<br>
+                    <code class="higlighted break-word">http://localhost:5000/api/detail/62db14f1cf1444d32c6af1d9</code>
+                </p>
+                <br>
+                <pre><code class="json">
+Result example :
+
+{
+	"_id": "62db14f1cf1444d32c6af1d9",
+	"title": "Uncharted: Fora do Mapa",
+	"image": "https://image.tmdb.org/t/p/original//qNAPgepJ4NHNA74ThVsxQEOUceJ.jpg",
+	"movie_banner": "https://image.tmdb.org/t/p/original//aEGiJJP91HsKVTEPy1HhmN0wRLm.jpg",
+	"description": "Nathan Drake e seu parceiro canastrão Victor \"Sully\" Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.",
+	"director": [
+		{
+			"adult": false,
+			"gender": 2,
+			"id": 91268,
+			"known_for_department": "Directing",
+			"name": "Ruben Fleischer",
+			"original_name": "Ruben Fleischer",
+			"popularity": 8.932,
+			"profile_path": "/3JLxOPFTLigSy8FjFjDyMwD9GIp.jpg",
+			"credit_id": "5e191bc9b3f6f50012d39ee2",
+			"department": "Directing",
+			"job": "Director"
+		}
+	],
+	"producer": [
+		{
+			"adult": false,
+			"gender": 2,
+			"id": 282,
+			"known_for_department": "Production",
+			"name": "Charles Roven",
+			"original_name": "Charles Roven",
+			"popularity": 2.375,
+			"profile_path": "/4uJLoVstC1CBcArXFOe53N2fDr1.jpg",
+			"credit_id": "5dccb1b979a1c3001345fb6e",
+			"department": "Production",
+			"job": "Producer"
+		},
+		{
+			"adult": false,
+			"gender": 2,
+			"id": 7626,
+			"known_for_department": "Production",
+			"name": "Avi Arad",
+			"original_name": "Avi Arad",
+			"popularity": 7.176,
+			"profile_path": "/zFNtix6jjAfjKeE687w1VgU4H1T.jpg",
+			"credit_id": "5dccb1d4e263bb001171cbf9",
+			"department": "Production",
+			"job": "Producer"
+		},
+		{
+			"adult": false,
+			"gender": 2,
+			"id": 37436,
+			"known_for_department": "Production",
+			"name": "Alex Gartner",
+			"original_name": "Alex Gartner",
+			"popularity": 1.22,
+			"profile_path": null,
+			"credit_id": "5dccb1c4b2e074001281d5e7",
+			"department": "Production",
+			"job": "Producer"
+		},
+		{
+			"adult": false,
+			"gender": 0,
+			"id": 937174,
+			"known_for_department": "Production",
+			"name": "Ari Arad",
+			"original_name": "Ari Arad",
+			"popularity": 3.313,
+			"profile_path": null,
+			"credit_id": "5dccb1e779a1c3001045b6db",
+			"department": "Production",
+			"job": "Producer"
+		}
+	],
+	"createdAt": "2022-07-22T21:21:53.917Z",
+	"updatedAt": "2022-07-22T21:21:53.917Z",
+	"__v": 0
+}
+                </code></pre>
+                <h4>Paginação</h4>
+                <table class="central-overflow-x">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>ID</th>
+                            <th>Type</th>
+                            <th>Endpoint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GET</td>
+                            <td>{ id }</td>
+                            <td>String</td>
+                            <td>/detail/{ id }</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="overflow-hidden content-section" id="content-update-database">
+                <h2>Atualizar Base de Dados</h2>
+                <pre><code class="bash">
+# curl  exemplo
+curl \
+-X POST http://localhost:5000/api/movies 
+                </code></pre>
+                <p>
+                    Para atualizar ou preencher a base de dados, basta fazer um POST na url abaixo :<br>
+                    <code class="higlighted break-word">http://localhost:5000/api/movies</code>
+                </p>
+                <br>
+                <pre><code class="json">
+Result example :
+
+{
+"movies": [
+{
+    "_id": "62db14f1cf1444d32c6af1d9",
+    "title": "Uncharted: Fora do Mapa",
+    "image": "https://image.tmdb.org/t/p/original//qNAPgepJ4NHNA74ThVsxQEOUceJ.jpg",
+    "movie_banner": "https://image.tmdb.org/t/p/original//aEGiJJP91HsKVTEPy1HhmN0wRLm.jpg",
+    "description": "Nathan Drake e seu parceiro canastrão Victor \"Sully\" Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.",
+    "director": [
+        {
+            "adult": false,
+            "gender": 2,
+            "id": 91268,
+            "known_for_department": "Directing",
+            "name": "Ruben Fleischer",
+            "original_name": "Ruben Fleischer",
+            "popularity": 8.932,
+            "profile_path": "/3JLxOPFTLigSy8FjFjDyMwD9GIp.jpg",
+            "credit_id": "5e191bc9b3f6f50012d39ee2",
+            "department": "Directing",
+            "job": "Director"
+        }
+    ],
+    "producer": [
+        {
+            "adult": false,
+            "gender": 2,
+            "id": 282,
+            "known_for_department": "Production",
+            "name": "Charles Roven",
+            "original_name": "Charles Roven",
+            "popularity": 2.375,
+            "profile_path": "/4uJLoVstC1CBcArXFOe53N2fDr1.jpg",
+            "credit_id": "5dccb1b979a1c3001345fb6e",
+            "department": "Production",
+            "job": "Producer"
+        },
+        {
+            "adult": false,
+            "gender": 2,
+            "id": 7626,
+            "known_for_department": "Production",
+            "name": "Avi Arad",
+            "original_name": "Avi Arad",
+            "popularity": 7.176,
+            "profile_path": "/zFNtix6jjAfjKeE687w1VgU4H1T.jpg",
+            "credit_id": "5dccb1d4e263bb001171cbf9",
+            "department": "Production",
+            "job": "Producer"
+        },
+        {
+            "adult": false,
+            "gender": 2,
+            "id": 37436,
+            "known_for_department": "Production",
+            "name": "Alex Gartner",
+            "original_name": "Alex Gartner",
+            "popularity": 1.22,
+            "profile_path": null,
+            "credit_id": "5dccb1c4b2e074001281d5e7",
+            "department": "Production",
+            "job": "Producer"
+        },
+        {
+            "adult": false,
+            "gender": 0,
+            "id": 937174,
+            "known_for_department": "Production",
+            "name": "Ari Arad",
+            "original_name": "Ari Arad",
+            "popularity": 3.313,
+            "profile_path": null,
+            "credit_id": "5dccb1e779a1c3001045b6db",
+            "department": "Production",
+            "job": "Producer"
+        }
+    ],
+    "createdAt": "2022-07-22T21:21:53.917Z",
+    "updatedAt": "2022-07-22T21:21:53.917Z",
+    "__v": 0
+}
+                </code></pre>
+                <h4>Paginação</h4>
+                <table class="central-overflow-x">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Page</th>
+                            <th>Type</th>
+                            <th>Endpoint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>POST</td>
+                            <td>NULL</td>
+                            <td>NULL</td>
+                            <td>/movies</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="content-code"></div>
+    </div>
+
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+
+        @keyframes octocat-wave {
+
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+
+        @media only screen and (max-width:680px) {
+            .github-corner>svg {
+                right: auto !important;
+                left: 0 !important;
+                transform: rotate(270deg) !important;
+            }
+        }
+    </style>
+    <!-- END Github Corner Ribbon - to remove -->
+    <script src="views/js/script.js"></script>
+</body>
+
+</html>
